@@ -3,44 +3,21 @@ import uuid from 'uuid/v4';
 
 const Form = ({ addAppointment }) => {
     const [appointment, setAppointment] = useState({
-        pet: '',
-        owner: '',
+        patient: '',
         date: '',
-        hour: '',
+        time: '',
         symptoms: ''
     })
-    const { pet, owner, date, hour, symptoms } = appointment
-    const [error, setError] = useState(false);
-    const handleOnChange = ev => {
-        setAppointment({
-            ...appointment,
-            [ev.target.name]: ev.target.value
-        })
-    }
-    const submitForm = ev => {
-        ev.preventDefault();
-        if(pet.trim() === '' || owner.trim() === '' || date.trim() === '' || hour.trim() === '' || symptoms.trim() === '') {
-            setError(true);
-            return;
-        };
-        setError(false)
-        appointment.id = uuid();
+    const { patient, date, time, symptoms } = appointment
+
+    const submitForm = e => {
+        e.preventDefault();
         addAppointment(appointment);
-        setAppointment({
-            pet: '',
-            owner: '',
-            date: '',
-            hour: '',
-            symptoms: ''
-        })
-        
-    }
+    };
+   
     return ( 
         <>
             <h2>Crear citas</h2>
-            { error ? 
-            <p className="alerta-error">Todos los campos son obligatorios</p>
-            : null}
             <form
                 onSubmit={submitForm}
             >
