@@ -21,23 +21,14 @@ const Form = ({ addAppointment }) => {
             <form
                 onSubmit={submitForm}
             >
-                <label>Nombre de la mascota</label>
+                <label>Paciente</label>
                 <input 
                     type="text"
                     name="pet"
                     className="u-full-width"
                     placeholder="Nombre de la mascota"
                     onChange={handleOnChange}
-                    value={pet}
-                />
-                <label>Propietario</label>
-                <input 
-                    type="text"
-                    name="owner"
-                    className="u-full-width"
-                    placeholder="Nombre del dueño"
-                    onChange={handleOnChange}
-                    value={owner}
+                    value={patient}
                 />
                 <label>Fecha del Turno</label>
                 <input 
@@ -50,10 +41,10 @@ const Form = ({ addAppointment }) => {
                 <label>Horario</label>
                 <input 
                     type="time"
-                    name="hour"
+                    name="time"
                     className="u-full-width"
                     onChange={handleOnChange}
-                    value={hour}
+                    value={time}
                 />
                 <label>Síntomas</label>
                 <textarea
